@@ -82,49 +82,103 @@
   <!-- Sección Consejos -->
   <!-- Sección Consejos -->
 <section id="consejos" class="bg-blue-50 py-16">
-  <div class="max-w-3xl mx-auto px-4">
-    <h2 class="text-4xl font-bold text-blue-800 mb-8 text-center"> Consejos Financieros</h2>
-
+  <div class="max-w-4xl mx-auto px-4">
+    <h2 class="text-4xl font-bold text-blue-800 mb-8 text-center">Consejos Financieros</h2>
+    
+    <!-- Lista de consejos -->
     <ul class="list-disc list-inside space-y-4 text-blue-900 text-lg mb-12">
-      <li>Evita los gastos hormiga: lleva una botella de agua en vez de comprar todos los días.</li>
-      <li>Usa sobres o apps para separar tus gastos: renta, comida, ocio.</li>
-      <li>Antes de comprar, pregúntate: "¿Realmente lo necesito?"</li>
-      <li>Define una meta clara de ahorro cada mes y síguela.</li>
-      <li>Calcular cuánto puedes ahorrar cada mes según tus ingresos y gastos.</li>
-      <li>Usar herramientas y retos que te motivan a mantener buenos hábitos financieros.</li>
+      <li>Evita los gastos hormiga: lleva tu comida y agua desde casa.</li>
+      <li>Usa sobres físicos o apps como Fintonic, Mobills o Dollarbird para organizar tus gastos.</li>
+      <li>Antes de comprar algo, espera 24 horas y analiza si realmente lo necesitas.</li>
+      <li>Define una meta de ahorro mensual y transfórmala en un gasto fijo prioritario.</li>
+      <li>Automatiza tu ahorro: programa una transferencia automática a tu cuenta de ahorro cada mes.</li>
+      <li>Invierte en tu educación financiera: lee libros, escucha podcasts o ve videos educativos.</li>
+      <li>Evita endeudarte para cosas no esenciales o de corta duración como ropa o tecnología nueva.</li>
+      <li>Aprende a usar PSE de forma segura para evitar fraudes al hacer pagos en línea.</li>
+      <li>Haz un presupuesto mensual realista y revísalo al menos una vez por semana.</li>
     </ul>
 
-    <!-- Consejos con plataformas -->
-    <div class="space-y-8">
+    <!-- Íconos interactivos -->
+    <div class="flex justify-center gap-10">
       <!-- PSE -->
-      <div class="flex items-start gap-4">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Logo_PSE.png/120px-Logo_PSE.png" alt="Logo PSE" class="w-12 h-12 object-contain">
-        <div>
-          <h3 class="text-xl font-bold text-blue-800">¿Qué es PSE y cómo se usa?</h3>
-          <p>PSE (Pagos Seguros en Línea) es una plataforma colombiana que permite pagar en línea desde tu cuenta bancaria sin tarjeta. Es ideal para compras, pagos de servicios y transferencias. Solo necesitas estar registrado en tu banco y tener acceso a internet. Al elegir PSE en una tienda, se abre el portal de tu banco para autorizar el pago de forma segura.</p>
-        </div>
-      </div>
-
-      <!-- Binance -->
-      <div class="flex items-start gap-4">
-        <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.png?v=026" alt="Logo Binance" class="w-12 h-12 object-contain">
-        <div>
-          <h3 class="text-xl font-bold text-blue-800">¿Qué es Binance y cómo se usa?</h3>
-          <p>Binance es una plataforma de intercambio de criptomonedas donde puedes comprar, vender y almacenar monedas digitales como Bitcoin, Ethereum y más. Para usarla, crea una cuenta, verifica tu identidad, carga saldo (por P2P o tarjeta) y empieza a operar. Es útil para invertir, ahorrar en criptos o enviar dinero a bajo costo.</p>
-        </div>
-      </div>
-
+      <button onclick="openModal('pse')" class="hover:scale-105 transition">
+        <img src="https://seeklogo.com/images/P/pse-logo-988ACD7E2C-seeklogo.com.png" alt="PSE" class="w-20 h-20 rounded-full shadow-lg">
+      </button>
       <!-- PayPal -->
-      <div class="flex items-start gap-4">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="Logo PayPal" class="w-12 h-12 object-contain">
-        <div>
-          <h3 class="text-xl font-bold text-blue-800">¿Qué es PayPal y cómo se usa?</h3>
-          <p>PayPal es una billetera digital global que permite enviar y recibir pagos en línea usando solo un correo electrónico. Es ideal para compras por internet, recibir pagos freelance o enviar dinero a familiares. Solo necesitas registrarte, vincular una tarjeta o cuenta bancaria, y podrás enviar dinero con seguridad en segundos.</p>
-        </div>
-      </div>
+      <button onclick="openModal('paypal')" class="hover:scale-105 transition">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" class="w-20 h-20 rounded-full shadow-lg">
+      </button>
+      <!-- Binance -->
+      <button onclick="openModal('binance')" class="hover:scale-105 transition">
+        <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.png" alt="Binance" class="w-20 h-20 rounded-full shadow-lg">
+      </button>
     </div>
   </div>
+
+  <!-- Modales -->
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50 p-4">
+    <div class="bg-white max-w-2xl w-full rounded-xl shadow-lg p-6 relative overflow-y-auto max-h-[90vh]">
+      <button onclick="closeModal()" class="absolute top-2 right-4 text-gray-600 text-2xl font-bold">&times;</button>
+      <div id="modal-content" class="text-gray-800 space-y-4"></div>
+    </div>
+  </div>
+
+  <!-- Script modal -->
+  <script>
+    const modal = document.getElementById("modal");
+    const modalContent = document.getElementById("modal-content");
+
+    function openModal(app) {
+      const info = {
+        pse: `
+          <h3 class="text-xl font-bold text-blue-800">PSE (Pagos Seguros en Línea)</h3>
+          <p><strong>¿Qué es?</strong> Es una plataforma colombiana para hacer pagos en línea desde cuentas bancarias.</p>
+          <p><strong>¿Para qué sirve?</strong> Para pagar servicios, productos o trámites sin tarjeta de crédito.</p>
+          <p><strong>¿Cómo se usa?</strong><ol class="list-decimal ml-6">
+            <li>Selecciona "PSE" como método de pago.</li>
+            <li>Elige si eres persona natural o jurídica.</li>
+            <li>Selecciona tu banco y entra con tu usuario.</li>
+            <li>Autoriza el pago y listo.</li>
+          </ol></p>
+          <p><strong>Tips:</strong> No compartas tu clave ni usuario. Usa solo redes seguras.</p>
+        `,
+        paypal: `
+          <h3 class="text-xl font-bold text-blue-800">PayPal</h3>
+          <p><strong>¿Qué es?</strong> Es una billetera digital internacional para pagar y recibir dinero por internet.</p>
+          <p><strong>¿Para qué sirve?</strong> Comprar en tiendas online, enviar dinero o recibir pagos como freelancer.</p>
+          <p><strong>¿Cómo se usa?</strong><ol class="list-decimal ml-6">
+            <li>Crea una cuenta en <a href="https://paypal.com" class="text-blue-600 underline" target="_blank">paypal.com</a>.</li>
+            <li>Asocia tu tarjeta o cuenta bancaria.</li>
+            <li>Envía o recibe dinero con solo un correo electrónico.</li>
+            <li>Retira fondos a tu banco.</li>
+          </ol></p>
+          <p><strong>Tips:</strong> Usa autenticación en dos pasos. No pagues a desconocidos sin garantía.</p>
+        `,
+        binance: `
+          <h3 class="text-xl font-bold text-yellow-600">Binance</h3>
+          <p><strong>¿Qué es?</strong> Es una de las plataformas más grandes del mundo para comprar, vender e invertir en criptomonedas.</p>
+          <p><strong>¿Para qué sirve?</strong> Comprar Bitcoin, ahorrar en stablecoins, hacer trading, ganar intereses.</p>
+          <p><strong>¿Cómo se usa?</strong><ol class="list-decimal ml-6">
+            <li>Regístrate en <a href="https://binance.com" class="text-yellow-600 underline" target="_blank">binance.com</a>.</li>
+            <li>Verifica tu identidad (KYC).</li>
+            <li>Deposita fondos con P2P, tarjeta o cripto.</li>
+            <li>Compra, vende o transfiere cripto.</li>
+          </ol></p>
+          <p><strong>Tips:</strong> Activa 2FA. No inviertas sin aprender. Evita operar con emociones.</p>
+        `
+      };
+      modalContent.innerHTML = info[app];
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeModal() {
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+  </script>
 </section>
+
 
   <!-- Sección Calculadora -->
 
