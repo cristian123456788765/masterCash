@@ -3,37 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MasterCash - Domina tus finanzas y más</title>
+  <title>MasterCash - Domina tus finanzas y mas</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Raleway', sans-serif; }
+<style>
+  body {
+    font-family: 'Raleway', sans-serif;
+  }
 
-    #modal-content {
-      max-height: 75vh;
-      overflow-y: auto;
-      padding-right: 0.5rem;
-      scrollbar-width: thin;
-      scrollbar-color: #b39ddb #f0f0f0;
-    }
+  #modal-content {
+    max-height: 75vh;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+  }
 
-    #modal-content::-webkit-scrollbar { width: 8px; }
-    #modal-content::-webkit-scrollbar-track { background: #f0f0f0; border-radius: 10px; }
-    #modal-content::-webkit-scrollbar-thumb {
-      background: #b39ddb;
-      border-radius: 10px;
-      border: 2px solid transparent;
-      background-clip: content-box;
-    }
-    #modal-content::-webkit-scrollbar-thumb:hover { background: #9575cd; }
-  </style>
+  /* Scrollbar moderna */
+  #modal-content::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  #modal-content::-webkit-scrollbar-track {
+    background: #f0f0f0; /* color del fondo de la barra */
+    border-radius: 10px;
+  }
+
+  #modal-content::-webkit-scrollbar-thumb {
+    background: #b39ddb; /* color del pulgar de la barra */
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  #modal-content::-webkit-scrollbar-thumb:hover {
+    background: #9575cd; /* color al pasar el mouse */
+  }
+
+  /* Firefox (scrollbar moderna, pero limitada) */
+  #modal-content {
+    scrollbar-width: thin;
+    scrollbar-color: #b39ddb #f0f0f0;
+  }
+</style>
+
 </head>
 <body class="bg-gradient-to-br from-blue-100 to-blue-300 text-gray-800">
   <!-- LOGO -->
   <header class="bg-white py-6 shadow-lg">
     <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between">
       <div class="flex items-center gap-4">
-        <img src="images/mastercash_logo_web.jpg" alt="Logo MasterCash" class="w-24 h-24 object-contain rounded-xl shadow-md">
+        <img src="images/mastercash_logo_web.jpg"  alt="Logo MasterCash" class="w-24 h-24 object-contain rounded-xl shadow-md">
         <div>
           <h1 class="text-5xl font-extrabold text-blue-900 tracking-tight">MasterCash</h1>
           <p class="italic text-md text-blue-700">Domina tus finanzas con estilo</p>
@@ -59,13 +77,13 @@
     <p class="text-2xl font-semibold italic text-blue-900 max-w-3xl mx-auto">"El ahorro no es solo guardar, es saber gastar sabiamente."</p>
   </section>
 
-  <!-- Sección Inicio -->
+   <!-- Sección Inicio -->
   <section id="inicio" class="bg-blue-50 py-16">
     <div class="max-w-3xl mx-auto px-4">
-      <h2 class="text-4xl font-bold text-blue-800 mb-8 text-center">Bienvenido a MasterCash</h2>
+      <h2 class="text-4xl font-bold text-blue-800 mb-8 text-center"> Bienvenido a MasterCash</h2>
       <ul class="list-disc list-inside space-y-4 text-blue-900 text-lg">
-        <legend>MasterCash es tu compañero inteligente para mejorar tus finanzas personales. Aquí podrás:</legend>
-        <li>Calcular cuánto puedes ahorrar cada mes según tus ingresos y gastos.</li>
+        <legend>MasterCash es tu compañero inteligente para mejorar tus finanzas personales. Este sitio ha sido creado especialmente para ayudarte a aprender a ahorrar, tomar decisiones financieras más sabias y alcanzar tus metas económicas sin complicaciones. Aquí podrás:</legend>
+        <li>Calcular cuánto puedes ahorrar cada mes según tus ingresos y gastos.</li>   
         <li>Recibir consejos prácticos para cuidar tu dinero día a día.</li>
         <li>Usar herramientas y retos que te motivan a mantener buenos hábitos financieros.</li>
         <li>Aprender de forma simple cómo manejar tu dinero con estilo y responsabilidad.</li>
@@ -73,43 +91,205 @@
     </div>
   </section>
 
-  <!-- Sección Mi Ahorro -->
-  <section id="mi-ahorro" class="max-w-3xl mx-auto px-4 py-16">
-    <h2 class="text-4xl font-bold text-blue-800 mb-8 text-center">Mi Ahorro</h2>
-    <form class="bg-white shadow-xl rounded-2xl p-10 space-y-6 border border-blue-100" onsubmit="event.preventDefault(); calcularAhorro();">
-      <div>
-        <label class="block font-semibold mb-1" for="ingresos">Ingresos mensuales (COP):</label>
-        <input type="text" id="ingresos" class="w-full p-4 border border-blue-300 rounded-lg" placeholder="Ej: 2.000.000" oninput="formatearMiles(this)" autocomplete="off" />
-      </div>
-      <div>
-        <label class="block font-semibold mb-1" for="gastos">Gastos mensuales (COP):</label>
-        <input type="text" id="gastos" class="w-full p-4 border border-blue-300 rounded-lg" placeholder="Ej: 1.000.000" oninput="formatearMiles(this)" autocomplete="off" />
-      </div>
-      <div>
-        <label class="block font-semibold mb-1" for="meta">Meta de ahorro (COP):</label>
-        <input type="text" id="meta" class="w-full p-4 border border-blue-300 rounded-lg" placeholder="Ej: 500.000" oninput="formatearMiles(this)" autocomplete="off" />
-      </div>
-      <button type="submit" class="bg-blue-900 text-white px-8 py-3 rounded-full hover:bg-blue-800 transition-all text-lg font-semibold">Calcular</button>
-    </form>
-    <div id="resultado" class="mt-8 text-xl font-medium text-blue-800 text-center"></div>
-  </section>
+ <!-- Sección Mi Ahorro -->
 
-  <!-- ✅ Sección Retos con botones -->
-  <section id="retos" class="bg-blue-100 py-16">
-    <div class="max-w-3xl mx-auto px-4 text-center">
-      <h2 class="text-4xl font-bold text-blue-800 mb-8">Retos de Ahorro</h2>
-      <p class="text-lg text-blue-900 mb-6">Acepta un reto y mejora tu hábito de ahorro:</p>
-      <div class="flex flex-col sm:flex-row gap-6 justify-center">
-        <button onclick="seleccionarMeta(500000)" class="bg-green-500 text-white px-6 py-3 rounded-xl font-semibold text-lg hover:bg-green-600 transition">Ahorra 500.000</button>
-        <button onclick="seleccionarMeta(1000000)" class="bg-green-600 text-white px-6 py-3 rounded-xl font-semibold text-lg hover:bg-green-700 transition">Ahorra 1.000.000</button>
-        <button onclick="seleccionarMeta(2000000)" class="bg-green-700 text-white px-6 py-3 rounded-xl font-semibold text-lg hover:bg-green-800 transition">Ahorra 2.000.000</button>
-      </div>
+ <section id="mi-ahorro" class="max-w-3xl mx-auto px-4 py-16">
+  <h2 class="text-4xl font-bold text-blue-800 mb-8 text-center">Mi Ahorro</h2>
+  <form class="bg-white shadow-xl rounded-2xl p-10 space-y-6 border border-blue-100" onsubmit="event.preventDefault(); calcularAhorro();">
+    <div>
+      <label class="block font-semibold mb-1" for="ingresos">Ingresos mensuales (COP):</label>
+      <input type="text" id="ingresos" class="w-full p-4 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Ej: 2.000.000" oninput="formatearMiles(this)" autocomplete="off" />
     </div>
-  </section>
+    <div>
+      <label class="block font-semibold mb-1" for="gastos">Gastos mensuales (COP):</label>
+      <input type="text" id="gastos" class="w-full p-4 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Ej: 1.000.000" oninput="formatearMiles(this)" autocomplete="off" />
+    </div>
+    <div>
+      <label class="block font-semibold mb-1" for="meta">Meta de ahorro (COP):</label>
+      <input type="text" id="meta" class="w-full p-4 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Ej: 500.000" oninput="formatearMiles(this)" autocomplete="off" />
+    </div>
+    <button type="submit" class="bg-blue-900 text-white px-8 py-3 rounded-full hover:bg-blue-800 transition-all text-lg font-semibold">Calcular</button>
+  </form>
+  <div id="resultado" class="mt-8 text-xl font-medium text-blue-800 text-center"></div>
+</section>
 
-  <!-- Aquí seguiría tu sección Consejos, Calculadoras, etc. -->
+  <!-- Sección Consejos -->
+  <!-- Sección Consejos -->
+<section id="consejos" class="bg-blue-50 py-16">
+  <div class="max-w-4xl mx-auto px-4">
+    <h2 class="text-4xl font-bold text-blue-800 mb-8 text-center">Consejos Financieros</h2>
+    
+    <!-- Lista de consejos -->
+    <ul class="list-disc list-inside space-y-4 text-blue-900 text-lg mb-12">
+      <li>Evita los gastos hormiga: lleva tu comida y agua desde casa.</li>
+      <li>Usa sobres físicos o apps como Fintonic, Mobills o Dollarbird para organizar tus gastos.</li>
+      <li>Antes de comprar algo, espera 24 horas y analiza si realmente lo necesitas.</li>
+      <li>Define una meta de ahorro mensual y transfórmala en un gasto fijo prioritario.</li>
+      <li>Automatiza tu ahorro: programa una transferencia automática a tu cuenta de ahorro cada mes.</li>
+      <li>Invierte en tu educación financiera: lee libros, escucha podcasts o ve videos educativos.</li>
+      <li>Evita endeudarte para cosas no esenciales o de corta duración como ropa o tecnología nueva.</li>
+      <li>Aprende a usar PSE de forma segura para evitar fraudes al hacer pagos en línea.</li>
+      <li>Haz un presupuesto mensual realista y revísalo al menos una vez por semana.</li>
+    </ul>
+
+    <!-- Íconos interactivos -->
+    <div class="flex justify-center gap-10">
+      <!-- PSE -->
+      <button onclick="openModal('pse')" class="hover:scale-105 transition">
+        <img src="images/logo-pse.webp" alt="PSE" class="w-20 h-20 rounded-full shadow-lg">
+      </button>
+      <!-- PayPal -->
+      <button onclick="openModal('paypal')" class="hover:scale-105 transition">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" class="w-20 h-20 rounded-full shadow-lg">
+      </button>
+      <!-- Binance -->
+      <button onclick="openModal('binance')" class="hover:scale-105 transition">
+        <img src="images/images.png" alt="Binance" class="w-20 h-20 rounded-full shadow-lg">
+      </button>
+    </div>
+  </div>
+
+  <!-- Modales -->
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50 p-4">
+    <div class="bg-white max-w-2xl w-full rounded-xl shadow-lg p-6 relative overflow-y-auto max-h-[90vh]">
+      <button onclick="closeModal()" class="absolute top-2 right-4 text-gray-600 text-2xl font-bold">&times;</button>
+      <div id="modal-content" class="text-gray-800 space-y-4"></div>
+    </div>
+  </div>
+
+  <!-- Script modal -->
+  <script>
+    const modal = document.getElementById("modal");
+    const modalContent = document.getElementById("modal-content");
+
+    function openModal(app) {
+      const info = {
+        pse: `
+          <h3 class="text-xl font-bold text-blue-800">PSE (Pagos Seguros en Línea)</h3>
+          <p><strong>¿Qué es PSE?</strong> Es un sistema de pagos en línea que permite a los usuarios realizar compras y pagos a través de internet, debitando los recursos de su cuenta bancaria.</p>
+          <p><strong>¿Cómo funciona?</strong> Para utilizar el PSE, se debe seleccionar el banco desde el cual se realizará el pago, ingresar con el usuario y contraseña del banco, y PSE se encargará del resto de la transacción. </p>
+          <p><strong>¿Qué puedo pagar con PSE?</strong> El PSE se puede usar para pagar una amplia variedad de servicios, incluyendo facturas de servicios públicos, impuestos, seguridad social, y compras en línea. </p>
+          <p><strong>¿Es seguro?</strong> El PSE es un sistema seguro, respaldado por la Asociación Colombiana de Bancos (Asobancol) y la Superintendencia Financiera de Colombia, lo que garantiza la seguridad de las transacciones. </p>
+          <p><strong>¿Qué hago si tengo problemas?</strong> En caso de tener problemas con una transacción, se debe contactar a la entidad financiera desde donde se realizó el pago. </p>
+          <p><strong>¿Hay algún costo por usar PSE?</strong> El PSE es un servicio gratuito para el usuario, no hay cobros por realizar pagos a través de este sistema. </p>
+          <p><strong>¿Puedo registrarme con mi correo electrónico corporativo?</strong> Sí, se puede registrar el correo electrónico personal y empresarial para realizar pagos personales y corporativos, respectivamente. </p>
+          <p><strong>¿Puedo usar PSE desde cualquier banco?</strong> Sí, siempre y cuando tu banco esté vinculado al sistema PSE. </p>
+          <p><strong>¿Cómo se realiza el pago?</strong> El proceso de pago a través de PSE es sencillo, se selecciona el banco, se ingresa con el usuario y contraseña, y se sigue el proceso de pago establecido por la entidad bancaria. </p>
+          <p><strong>¿Qué hago si cierro la ventana o se cae la conexión durante el pago?</strong> Al realizar el débito, el banco genera un comprobante. Al regresar a la empresa, el sistema debe generar un comprobante del pago realizado, donde se podrá imprimir. </p>
+          <p><strong>¿Cuánto tarda en verse reflejado el pago?</strong> El tiempo de reflejo de la transacción puede variar según el banco, pero generalmente se refleja en un máximo de 10 minutos. </p>
+          <p><strong>¿Cómo se usa?</strong><ol class="list-decimal ml-6">
+          <p><strong>Paso 1: Entra al sitio donde quieres pagar</strong>
+            <li>Puede ser una tienda online, una app, una plataforma de servicios (como una universidad, empresa de servicios públicos, etc.).</li>
+            <li>Asegúrate de que ofrezcan PSE como medio de pago.</li>
+          <p><strong>Paso 2: Selecciona PSE como forma de pago</strong>
+            <li>Al momento de pagar, elige “PSE” entre las opciones.</li>
+            <li>A veces dice: "Pago con cuenta bancaria (PSE)".</li>
+          <p><strong>Paso 3: Elige tipo de usuario</strong>
+            <li>Te preguntará si eres:</li>
+            <li>Persona natural (si es para ti).</li>
+            <li>Persona jurídica (si es para empresa).</li>
+          <p><strong>Paso 4: Selecciona tu banco</strong>
+            <li>Aparece una lista de bancos (como Bancolombia, Davivienda, Nequi, BBVA, etc.).</li>
+            <li>Elige el tuyo.</li>
+          <p><strong>Paso 5: Ingresa tu correo electrónico</strong>
+            <li>Debes escribir tu correo electrónico para recibir el comprobante del pago.</li>
+          <p><strong>Paso 6: Inicia sesión en tu banco</strong>
+            <li>El sistema te llevará a la plataforma del banco.</li>
+            <li>Ingresa con tus datos: usuario y clave virtual.</li>
+          <p><strong>Paso 7: Autoriza el pago</strong>
+            <li>Revisa los datos del pago: monto, empresa, número de referencia.</li>
+            <li>Si todo está correcto, autoriza el pago (a veces piden código enviado al celular o token).</li>
+          <p><strong>Paso 8: Confirma el pago</strong>
+            <li>Una vez aprobado, el sistema te lleva de vuelta al sitio web donde empezaste.</li>
+            <li>Aparecerá un mensaje de "Pago exitoso" o se enviará al correo.</li>
+          </ol></p>
+          <p><strong>Tips </strong><ol class="list-decimal ml-6">
+          <li>No compartas tu clave ni usuario. Usa solo redes seguras.</li>
+          <li>Evita hacer pagos desde redes Wi-Fi públicas.</li>
+          <li>Guarda o descarga el comprobante del pago.</li>
+        `,
+        paypal: `
+          <h3 class="text-xl font-bold text-blue-800">PayPal</h3>
+          <p><strong>¿Qué es PayPal?</strong></p>
+            <li>PayPal es una plataforma de pagos en línea que permite a individuos y empresas enviar y recibir pagos de forma segura.</li>
+          <p><strong>¿Cómo funciona PayPal?</strong></p>
+            <li>Los usuarios pueden vincular sus cuentas bancarias o tarjetas de crédito/débito a su cuenta de PayPal y usar la plataforma para enviar o recibir dinero en línea.</li>
+          <p><strong>¿Cuánto cuesta usar PayPal?</strong></p>
+            <li>Abrir una cuenta y comprar productos o servicios generalmente no tiene costo. Sin embargo, pueden aplicarse tarifas por conversión de moneda o recepción de pagos de ciertas transacciones, como compras internacionales o transferencias entre distintos países.</li>
+          <p><strong>¿Cómo puedo agregar fondos a mi cuenta de PayPal?</strong></p>
+            <li>Puedes agregar fondos a través de transferencias desde tu cuenta bancaria vinculada o utilizando tarjetas de crédito/débito.</li>
+          <p><strong>¿Cómo puedo recibir pagos con PayPal?</strong></p>
+            <li>Los pagos se reciben en tu saldo de PayPal y puedes utilizarlos para compras en línea o transferirlos a tu cuenta bancaria vinculada.</li>
+          <p><strong>¿Es seguro usar PayPal?</strong></p>
+            <li>PayPal utiliza tecnología de seguridad avanzada para proteger la información financiera de los usuarios, y los datos confidenciales no se comparten con el destinatario del pago.</li>
+          <p><strong>¿Cómo puedo recuperar mi contraseña de PayPal?</strong></p>
+            <li>Puedes restablecer tu contraseña a través de la opción "¿Olvidaste tu contraseña?" en la página de inicio de sesión de PayPal.</li>    
+          <p><strong>¿Cómo se usa?</strong><ol class="list-decimal ml-6">
+            <li>Crea una cuenta en <a href="https://paypal.com" class="text-blue-600 underline" target="_blank">paypal.com</a>.</li>
+            <li>Asocia tu tarjeta o cuenta bancaria.</li>
+            <li>Envía o recibe dinero con solo un correo electrónico.</li>
+            <li>Retira fondos a tu banco.</li>  
+          </ol></p>
+          <p><strong>Tips</strong></p><ol class="list-decimal ml-6">
+            <li>Usa autenticación en dos pasos. No pagues a desconocidos sin garantía.</li>
+            <li>No compartas tu información de inicio de sesión con nadie.</li>
+            <li>Verifica la legitimidad de los correos electrónicos o mensajes que parecen provenir de PayPal. PayPal nunca te pedirá que reveles información confidencial por correo electrónico.</li>
+            <li>Mantén tu software antivirus actualizado.</li>
+            <li>Utiliza contraseñas seguras y cámbialas periódicamente. </li>
+            <li>Ten cuidado con los enlaces sospechosos que te llevan a páginas de inicio de sesión falsas.</li> 
+        `,
+        binance: `
+          <h3 class="text-xl font-bold text-yellow-600">Binance</h3>
+          <p><strong>¿Qué es?</strong> Es una de las plataformas más grandes del mundo para comprar, vender e invertir en criptomonedas.</p>
+          <p><strong>¿Para qué sirve?</strong> Comprar Bitcoin, ahorrar en stablecoins, hacer trading, ganar intereses.</p>
+          <p><strong>¿Cómo se usa?</strong><ol class="list-decimal ml-6">
+            <li>Regístrate en <a href="https://binance.com" class="text-yellow-600 underline" target="_blank">binance.com</a>.</li>
+            <li>Verifica tu identidad (KYC).</li>
+            <li>Deposita fondos con P2P, tarjeta o cripto.</li>
+            <li>Compra, vende o transfiere cripto.</li>
+          </ol></p>
+          <p><strong>Tips:</strong> Activa 2FA. No inviertas sin aprender. Evita operar con emociones.</p>
+        `
+      };
+      modalContent.innerHTML = info[app];
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeModal() {
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+  </script>
+</section>
+
+
+  <!-- Sección Calculadora -->
+
+  <section id="calculadoras" class="bg-blue-50 py-16">
+  <div class="max-w-3xl mx-auto px-4">
+    <h2 class="text-4xl font-bold text-blue-800 mb-8 text-center">Calculadora de Préstamos</h2>
+    <form class="bg-white shadow-xl rounded-2xl p-10 space-y-6 border border-blue-100" onsubmit="event.preventDefault(); calcularPrestamo();">
+      <div>
+        <label class="block font-semibold mb-1" for="montoPrestamo">Monto del préstamo (COP):</label>
+        <input type="text" id="montoPrestamo" class="w-full p-4 border border-blue-300 rounded-lg" placeholder="Ej: 10.000.000" oninput="formatearMiles(this)" onblur="quitarFormato(this)" autocomplete="off" />
+      </div>
+      <div>
+        <label class="block font-semibold mb-1" for="tasaInteres">Tasa de interés anual (%):</label>
+        <input type="number" id="tasaInteres" class="w-full p-4 border border-blue-300 rounded-lg" placeholder="Ej: 12" autocomplete="off" />
+      </div>
+      <div>
+        <label class="block font-semibold mb-1" for="cuotas">Cuotas (meses):</label>
+        <input type="number" id="cuotas" class="w-full p-4 border border-blue-300 rounded-lg" placeholder="Ej: 24" autocomplete="off" />
+      </div>
+      <button type="submit" class="bg-blue-900 text-white px-8 py-3 rounded-full hover:bg-blue-800 transition-all text-lg font-semibold">Calcular préstamo</button>
+    </form>
+    <div id="resultadoPrestamo" class="mt-8 text-xl font-medium text-blue-800 text-center"></div>
+  </div>
+</section>
 
   <script>
+    // Formatea automáticamente mientras escribe (con puntos)
     function formatearMiles(input) {
       let valor = input.value.replace(/\./g, '').replace(/\D/g, '');
       if (valor === '') {
@@ -119,16 +299,19 @@
       input.value = parseInt(valor).toLocaleString("es-CO");
     }
 
+    // Quita el formato para enviar el valor limpio
     function quitarFormato(input) {
       input.value = input.value.replace(/\./g, '');
     }
 
+    // Obtener valor numérico sin puntos ni caracteres no numéricos
     function obtenerValorNumerico(id) {
       const raw = document.getElementById(id).value;
       const limpio = raw.replace(/\./g, '').replace(/[^\d]/g, '');
       return parseInt(limpio) || 0;
     }
 
+    // Calculadora Mi Ahorro
     function calcularAhorro() {
       const ingresos = obtenerValorNumerico("ingresos");
       const gastos = obtenerValorNumerico("gastos");
@@ -154,12 +337,34 @@
       }
     }
 
-    // ✅ Script para los botones de ahorro
-    function seleccionarMeta(valor) {
-      const inputMeta = document.getElementById("meta");
-      inputMeta.value = valor.toLocaleString("es-CO");
-      inputMeta.focus();
-    }
+    // Calculadora de préstamo simple
+    function calcularPrestamo() {
+  const monto = obtenerValorNumerico("montoPrestamo");
+  const tasa = parseFloat(document.getElementById("tasaInteres").value);
+  const cuotas = parseInt(document.getElementById("cuotas").value);
+  const resultado = document.getElementById("resultadoPrestamo");
+
+  if (monto <= 0 || isNaN(tasa) || tasa <= 0 || isNaN(cuotas) || cuotas <= 0) {
+    resultado.textContent = "Por favor completa todos los campos correctamente.";
+    return;
+  }
+
+  // Cálculo cuota mensual (fórmula de amortización)
+  const tasaMensual = tasa / 12 / 100;
+  const cuotaMensual = (monto * tasaMensual) / (1 - Math.pow(1 + tasaMensual, -cuotas));
+
+  // Total pagado
+  const totalPagado = cuotaMensual * cuotas;
+
+  // Intereses pagados
+  const interesesPagados = totalPagado - monto;
+
+  resultado.innerHTML = `
+    Tu cuota mensual es: <strong>${cuotaMensual.toLocaleString("es-CO", {style: 'currency', currency: 'COP'})}</strong> durante ${cuotas} meses.<br>
+    Total a pagar: <strong>${totalPagado.toLocaleString("es-CO", {style: 'currency', currency: 'COP'})}</strong><br>
+    Total pagado en intereses: <strong>${interesesPagados.toLocaleString("es-CO", {style: 'currency', currency: 'COP'})}</strong>
+  `;
+}
   </script>
 </body>
 </html>
