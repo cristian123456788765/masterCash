@@ -114,7 +114,6 @@
 </section>
 
   <!-- Sección Consejos -->
-  <!-- Sección Consejos -->
 <section id="consejos" class="bg-blue-50 py-16">
   <div class="max-w-4xl mx-auto px-4">
     <h2 class="text-4xl font-bold text-blue-800 mb-8 text-center">Consejos Financieros</h2>
@@ -146,6 +145,19 @@
       <button onclick="openModal('binance')" class="hover:scale-105 transition">
         <img src="images/images.png" alt="Binance" class="w-20 h-20 rounded-full shadow-lg">
       </button>
+      <!-- Transfiya -->
+  <button onclick="openModal('transfiya')" class="hover:scale-105 transition">
+    <img src="images/Logo Transfiya.png" alt="Transfiya" class="w-20 h-20 rounded-full shadow-lg">
+  </button>
+  <!-- Llaves -->
+  <button onclick="openModal('llaves')" class="hover:scale-105 transition">
+    <img src="images/Logo Llaves.webp" alt="Llaves" class="w-20 h-20 rounded-full shadow-lg">
+  </button>
+  <!-- Crédito -->
+  <button onclick="openModal('credito')" class="hover:scale-105 transition">
+    <img src="images/Logo Credito.png" alt="Crédito" class="w-20 h-20 rounded-full shadow-lg">
+  </button>
+</div>
     </div>
   </div>
 
@@ -266,6 +278,58 @@
             <li>Compra o deposita criptomonedas</li>
             <li>Empieza a operar</li>
         `
+        transfiya: `
+  <h3 class="text-xl font-bold text-green-800">Transfiya</h3>
+  <p><strong>¿Qué es?</strong> Es un servicio de transferencias instantáneas entre cuentas bancarias en Colombia usando solo el número de celular.</p>
+  <p><strong>¿Para qué sirve?</strong> Enviar o recibir dinero entre diferentes bancos sin necesidad de conocer el número de cuenta.</p>
+  <p><strong>¿Cómo se usa?</strong></p>
+  <ol class="list-decimal ml-6">
+    <li>Entra a la app de tu banco y selecciona “Transfiya”.</li>
+    <li>Ingresa el número de celular del destinatario.</li>
+    <li>Escribe el monto y confirma.</li>
+    <li>El receptor acepta y el dinero llega al instante.</li>
+  </ol>
+  <p><strong>Tips:</strong></p>
+  <ul class="list-disc ml-6">
+    <li>Verifica que el número esté registrado en Transfiya.</li>
+    <li>Úsalo para dividir cuentas o pagarle a conocidos fácilmente.</li>
+  </ul>
+`,
+
+llaves: `
+  <h3 class="text-xl font-bold text-purple-800">Llaves Dinámicas Bancarias</h3>
+  <p><strong>¿Qué es?</strong> Son códigos temporales que generan algunos bancos para validar operaciones sensibles.</p>
+  <p><strong>¿Para qué sirven?</strong> Aumentar la seguridad en transacciones electrónicas como pagos, transferencias o inicios de sesión.</p>
+  <p><strong>¿Cómo se usa?</strong></p>
+  <ol class="list-decimal ml-6">
+    <li>Activa la llave dinámica desde la app o el portal de tu banco.</li>
+    <li>Cada vez que haces una transacción, el banco pedirá una clave generada al momento.</li>
+  </ol>
+  <p><strong>Tips:</strong></p>
+  <ul class="list-disc ml-6">
+    <li>No compartas tu llave dinámica.</li>
+    <li>Evita usar redes públicas cuando hagas transacciones.</li>
+  </ul>
+`,
+
+credito: `
+  <h3 class="text-xl font-bold text-red-700">Crédito</h3>
+  <p><strong>¿Qué es?</strong> Es un préstamo de dinero otorgado por una entidad financiera bajo ciertas condiciones de pago y tasas de interés.</p>
+  <p><strong>¿Para qué sirve?</strong> Para financiar compras grandes, educación, vivienda, emergencias o emprendimientos.</p>
+  <p><strong>¿Cómo se usa?</strong></p>
+  <ol class="list-decimal ml-6">
+    <li>Solicita el crédito en un banco o entidad financiera.</li>
+    <li>Entrega tus datos y soportes de ingresos.</li>
+    <li>Firma el contrato y recibe el dinero.</li>
+  </ol>
+  <p><strong>Tips:</strong></p>
+  <ul class="list-disc ml-6">
+    <li>Evita endeudarte más del 30% de tu ingreso mensual.</li>
+    <li>Revisa bien la tasa de interés y el plazo.</li>
+    <li>Paga puntualmente para mantener buen historial crediticio.</li>
+  </ul>
+`,
+
       };
       modalContent.innerHTML = info[app];
       modal.classList.remove("hidden");
