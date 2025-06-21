@@ -363,6 +363,22 @@
     Tu cuota mensual es: <strong>${cuotaMensual.toLocaleString("es-CO", {style: 'currency', currency: 'COP'})}</strong> durante ${cuotas} meses.<br>
     Total a pagar: <strong>${totalPagado.toLocaleString("es-CO", {style: 'currency', currency: 'COP'})}</strong><br>
     Total pagado en intereses: <strong>${interesesPagados.toLocaleString("es-CO", {style: 'currency', currency: 'COP'})}</strong>
+
+
+  //Seccion Retos//
+
+ <section id="retos" class="bg-blue-100 py-16">
+  <div class="max-w-3xl mx-auto px-4 text-center">
+    <h2 class="text-4xl font-bold text-blue-800 mb-8">Retos de Ahorro</h2>
+    <p class="text-lg text-blue-900 mb-6">Acepta un reto y mejora tu hábito de ahorro:</p>
+    
+    <div class="flex flex-col sm:flex-row gap-6 justify-center">
+      <button onclick="seleccionarMeta(500000)" class="bg-green-500 text-white px-6 py-3 rounded-xl font-semibold text-lg hover:bg-green-600 transition">Ahorra 500.000</button>
+      <button onclick="seleccionarMeta(1000000)" class="bg-green-600 text-white px-6 py-3 rounded-xl font-semibold text-lg hover:bg-green-700 transition">Ahorra 1.000.000</button>
+      <button onclick="seleccionarMeta(2000000)" class="bg-green-700 text-white px-6 py-3 rounded-xl font-semibold text-lg hover:bg-green-800 transition">Ahorra 2.000.000</button>
+    </div>
+  </div>
+</section>
   `;
 }
   </script>
